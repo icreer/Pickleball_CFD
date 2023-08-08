@@ -17,3 +17,4 @@ The requried outside side software to run this software.
 - Debian Linux invoroent
 - Working verson of openFoam (Tested on openFoam 2306)
 - Python 3.10
+- numpy 
