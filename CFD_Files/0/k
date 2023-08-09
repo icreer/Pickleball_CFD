@@ -9,44 +9,44 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
-    object      controlDict;
+    class       volScalarField;
+    object      k;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     simpleFoam;
+dimensions      [0 2 -2 0 0 0 0];
 
-startFrom       startTime;
+internalField   uniform 0.375;
 
-startTime       0;
-
-stopAt          endTime;
-
-endTime         2000;
-
-deltaT          1;
-
-writeControl    timeStep;
-
-writeInterval   100;
-
-purgeWrite      0;
-
-writeFormat     ascii;
-
-writePrecision  6;
-
-writeCompression off;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable true;
-
-functions
+boundaryField
 {
-    #includeFunc streamlines
+    inlet
+    {
+        type            fixedValue;
+        value           uniform 0.375;
+    }
+
+    outlet
+    {
+        type            zeroGradient;
+    }
+
+    upperWall
+    {
+        type            kqRWallFunction;
+        value           uniform 0.375;
+    }
+
+    lowerWall
+    {
+        type            kqRWallFunction;
+        value           uniform 0.375;
+    }
+
+    frontAndBack
+    {
+        type            empty;
+    }
 }
 
 
