@@ -11,7 +11,12 @@ import mesh_generation
 
 def main():
     # Open openfoam
-    os.system(openfoam2306)
+    print("test")
+    #os.system("ubuntu")
+    os.system("openfoam2306")
+    os.system("exit")
+    #os.system("exit")
+    print("test")
 
 
 if __name__ == '__main__':
